@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+
+<title>lacunr Quick-start guide</title>
+
+<script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
+// be compatible with the behavior of Pandoc < 2.8).
+document.addEventListener('DOMContentLoaded', function(e) {
+  var hs = document.querySelectorAll("div.section[class*='level'] > :first-child");
+  var i, h, a;
+  for (i = 0; i < hs.length; i++) {
+    h = hs[i];
+    if (!/^h[1-6]$/i.test(h.tagName)) continue;  // it should be a header h1-h6
+    a = h.attributes;
+    while (a.length > 0) h.removeAttribute(a[0].name);
+  }
+});
+</script>
+
+<style type="text/css">
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+
+
+<style type="text/css">
+code {
+white-space: pre;
+}
+.sourceCode {
+overflow: visible;
+}
+</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+color: #aaaaaa;
+}
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } 
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.at { color: #7d9029; } 
+code span.bn { color: #40a070; } 
+code span.bu { color: #008000; } 
+code span.cf { color: #007020; font-weight: bold; } 
+code span.ch { color: #4070a0; } 
+code span.cn { color: #880000; } 
+code span.co { color: #60a0b0; font-style: italic; } 
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.do { color: #ba2121; font-style: italic; } 
+code span.dt { color: #902000; } 
+code span.dv { color: #40a070; } 
+code span.er { color: #ff0000; font-weight: bold; } 
+code span.ex { } 
+code span.fl { color: #40a070; } 
+code span.fu { color: #06287e; } 
+code span.im { color: #008000; font-weight: bold; } 
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.kw { color: #007020; font-weight: bold; } 
+code span.op { color: #666666; } 
+code span.ot { color: #007020; } 
+code span.pp { color: #bc7a00; } 
+code span.sc { color: #4070a0; } 
+code span.ss { color: #bb6688; } 
+code span.st { color: #4070a0; } 
+code span.va { color: #19177c; } 
+code span.vs { color: #4070a0; } 
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } 
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    var j = 0;
+    while (j < rules.length) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; } 
+code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore"><code>lacunr</code> Quick-start guide</h1>
+
+
+
+<p>The standard workflow for <code>lacunr</code> is fairly simple:</p>
+<ol style="list-style-type: decimal">
+<li>Convert point cloud data to voxels using
+<code>voxelize()</code></li>
+<li>Arrange the voxels into a 3-dimensional array using
+<code>bounding_box()</code></li>
+<li>Calculate a lacunarity curve using <code>lacunarity()</code></li>
+</ol>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">library</span>(lacunr)</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="co"># create a data.frame of simulated point cloud data</span></span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">5678</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a>pc <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">X =</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>, <span class="dv">10</span>), <span class="at">Y =</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>, <span class="dv">50</span>), <span class="at">Z =</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>, <span class="dv">25</span>))</span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a><span class="co"># convert to voxels of size 0.5</span></span>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a>vox <span class="ot">&lt;-</span> <span class="fu">voxelize</span>(pc, <span class="at">edge_length =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">0.5</span>, <span class="fl">0.5</span>))</span>
+<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a><span class="co"># generate 3D array</span></span>
+<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a>box <span class="ot">&lt;-</span> <span class="fu">bounding_box</span>(vox)</span>
+<span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a><span class="co"># calculate lacunarity curve</span></span>
+<span id="cb1-10"><a href="#cb1-10" tabindex="-1"></a>lac_curve <span class="ot">&lt;-</span> <span class="fu">lacunarity</span>(box)</span></code></pre></div>
+<p>Lacunarity and H(r) curves can be plotted using
+<code>lac_plot()</code>, <code>lacnorm_plot()</code>, or
+<code>hr_plot()</code>:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="co"># plot lacunarity curve</span></span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>plot <span class="ot">&lt;-</span> <span class="fu">lac_plot</span>(lac_curve)</span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="fu">print</span>(plot)</span></code></pre></div>
+<p><img src="data:image/png;base64,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" width="97%" /></p>
+<p>3D arrays generated by <code>bounding_box()</code> can have their
+dimensions selectively increased using <code>pad_array()</code>:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="co"># add two layers of empty space to the Z axis of the array</span></span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>box_pad1 <span class="ot">&lt;-</span> <span class="fu">pad_array</span>(box, <span class="at">z =</span> <span class="dv">2</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="co"># add two layers of occupied space to the Y axis of the array</span></span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>box_pad2 <span class="ot">&lt;-</span> <span class="fu">pad_array</span>(box, <span class="at">y =</span> <span class="dv">2</span>, <span class="at">fill =</span> <span class="dv">1</span>)</span></code></pre></div>
+<p>For more extensive explanation on these functions and their use,
+please see the package documentation (available by typing
+<code>?lacunr</code> into your console), or the other vignettes via
+<code>browseVignettes(&quot;lacunr&quot;)</code>.</p>
+
+
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
