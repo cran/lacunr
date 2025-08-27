@@ -13,8 +13,10 @@ library(lacunr)
 las_glassfire <- lidR::LAS(data = glassfire)
 
 ## ----error=TRUE---------------------------------------------------------------
+try({
 # the wrong way to call voxelize() for a 'LAS' object:
 vox <- voxelize(las_glassfire, edge_length = c(0.5, 0.5, 0.5))
+})
 
 ## -----------------------------------------------------------------------------
 # voxelize the LAS point cloud, taking care to input the correct S4 slot

@@ -1,8 +1,8 @@
 Package: lacunr
 Type: Package
 Title: Fast 3D Lacunarity for Voxel Data
-Version: 1.0.1
-Date: 2024-06-03
+Version: 1.0.2
+Date: 2025-08-27
 Authors@R: c(
     person("Elliott", "Smeds", , "elliott.alfred93@gmail.com", role = c("aut", "cre", "cph"),
            comment = c(ORCID = "0000-0003-1054-7491")),
@@ -23,17 +23,18 @@ Encoding: UTF-8
 Imports: Rcpp (>= 1.0.10), data.table, abind, ggplot2, rlang
 Suggests: knitr, lidR, rmarkdown, testthat (>= 3.0.0)
 LinkingTo: Rcpp, RcppArmadillo, RcppThread
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.2
 Config/testthat/edition: 3
 Depends: R (>= 2.10)
 LazyData: true
 LazyDataCompression: bzip2
 VignetteBuilder: knitr
 NeedsCompilation: yes
-Packaged: 2024-06-03 20:55:07 UTC; easmeds
-Author: Elliott Smeds [aut, cre, cph] (<https://orcid.org/0000-0003-1054-7491>),
+Packaged: 2025-08-27 23:21:16 UTC; easmeds
+Author: Elliott Smeds [aut, cre, cph] (ORCID:
+    <https://orcid.org/0000-0003-1054-7491>),
   J. Antonio Guzmán Q. [cph] (Author of original version of voxelize()
     function)
 Maintainer: Elliott Smeds <elliott.alfred93@gmail.com>
 Repository: CRAN
-Date/Publication: 2024-06-04 16:00:02 UTC
+Date/Publication: 2025-08-27 23:40:02 UTC

@@ -49,7 +49,7 @@ overflow: visible;
 </style>
 <style type="text/css" data-origin="pandoc">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -60,7 +60,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
 { counter-reset: source-line 0; }
@@ -380,7 +380,7 @@ that to <code>voxelize()</code>:</p>
 <div id="voxelization-using-lidr" class="section level2">
 <h2>Voxelization using <code>lidR</code></h2>
 <p><code>lidR</code> offers its own extremely versatile voxelization
-function, <a href="https://r-lidar.github.io/lidRbook/vba.html"><code>voxel_metrics()</code></a>.
+function, <a href="https://r-lidar.github.io/lidRbook/voxel_metrics.html"><code>voxel_metrics()</code></a>.
 This provides a useful alternative to <code>voxelize()</code>, although
 it is important to note that both functions utilize different algorithms
 and will not produce identical results (see the following section for

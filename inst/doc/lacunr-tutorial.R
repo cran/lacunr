@@ -63,17 +63,17 @@ lac_plot(lac_segregated, lac_grad, lac_random, lac_unif,
          group_names = c("Segregated","Gradient","Random","Uniform"))
 
 ## ----eval=FALSE---------------------------------------------------------------
-#  library(ggplot2)
-#  
-#  # plot point cloud data at each time point
-#  plot <- ggplot(data = glassfire, aes(x = X, y = Y)) +
-#    geom_raster(aes(fill = Z)) +
-#    facet_grid(cols = vars(Year)) +
-#    scale_fill_viridis_c(option = "plasma") +
-#    theme(panel.grid = element_blank(),
-#          panel.background = element_rect(fill = "black"),
-#          aspect.ratio = 1)
-#  print(plot)
+# library(ggplot2)
+# 
+# # plot point cloud data at each time point
+# plot <- ggplot(data = glassfire, aes(x = X, y = Y)) +
+#   geom_raster(aes(fill = Z)) +
+#   facet_grid(cols = vars(Year)) +
+#   scale_fill_viridis_c(option = "plasma") +
+#   theme(panel.grid = element_blank(),
+#         panel.background = element_rect(fill = "black"),
+#         aspect.ratio = 1)
+# print(plot)
 
 ## ----echo=FALSE, fig.width=6, out.width="97%", fig.asp=1/2, cache=FALSE-------
 library(ggplot2)
